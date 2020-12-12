@@ -59,25 +59,22 @@ The client sends a message containing the following fields in order:
 string all encoded to bytes as a utf-8 string.
 - the file
 
-The server receives 24 bytes of data (size of int in python) from the socket and decodes it as a utf-8
-string and then to int. It then receives the next [x] number of bytes as indicated by the message it
-just received. Then it decodes it to a string and splits (into command, filename) whenever it finds a
-“\0”. If the string equals "get" it points it to the relative function.
+The server receives 24 bytes of data (size of int in python) from the socket and decodes it as a utf-8 string and then to int.
+It then receives the next [x] number of bytes as indicated by the message it just received.
+Then it decodes it to a string and splits (into command, filename) whenever it finds a “\0”. 
+If the string equals "get" it points it to the relative function.
 It then uses open file function and then sends a header with the file size and the file afterwards.
-The client receives 24 bytes of data(size of int in python) from the socket and decodes it as a utf-8
-string and then to int. It then receives the next x number of bytes as indicated by the message it
-just received and writes in a file with filename. It then prints “filename has been downloaded
-with file_size”
+The client receives 24 bytes of data(size of int in python) from the socket and decodes it as a utf-8 string and then to int.
+It then receives the next x number of bytes as indicated by the message it just received and writes in a file with filename.
+It then prints “filename has been downloaded with file_size”.
 
 ## List:
 The client sends a message containing the following fields in order:
 - the size of the message that includes the command
 - the string "list" followed by a "\0 encoded to binary as a utf-8 string.
-The server receives 24 bytes of data (size of int in python) from the socket and decodes it as a utf-8
-string and then to int. It then receives the next [x] number of bytes as indicated by the message it
-just received. Then it decodes it to a string and splits (into command) whenever it finds a “\0”.
-Georgios Flouri Christos Stylianou
-It then finds the path of the directory and prints the listing. It the encodes it and sends its size first
-followed by the listing
-The client receives the size and decodes it to str using utf-8 and then to int, it then receives
-size number of data and decodes it to the listing and finally prints the listing.
+
+The server receives 24 bytes of data (size of int in python) from the socket and decodes it as a utf-8 string and then to int.
+It then receives the next [x] number of bytes as indicated by the message itjust received. Then it decodes it to a string and splits (into command) whenever it finds a “\0”.
+It then finds the path of the directory and prints the listing.
+It the encodes it and sends its size first followed by the listing.
+The client receives the size and decodes it to str using utf-8 and then to int, it then receives size number of data and decodes it to the listing and finally prints the listing.
