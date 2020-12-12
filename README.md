@@ -17,6 +17,7 @@ The client sends a message containing the following fields in order:
 - the string "put" followed by a "\0" character and the filename followed by a “\0” and the
 file_size as a string plus a "\0" character, all encoded to binary as a utf-8 string.
 - the file
+
 It then prints “file has been uploaded”.
 The server receives 24 bytes of data (size of int in python) from the socket and decodes it as a utf-8
 string and then to int. It then receives the next [x] number of bytes as indicated by the message it
@@ -57,6 +58,7 @@ The client sends a message containing the following fields in order:
 - the string "put" followed by a "\0" character and the filename followed by a “\0” as a
 string all encoded to bytes as a utf-8 string.
 - the file
+
 The server receives 24 bytes of data (size of int in python) from the socket and decodes it as a utf-8
 string and then to int. It then receives the next [x] number of bytes as indicated by the message it
 just received. Then it decodes it to a string and splits (into command, filename) whenever it finds a
